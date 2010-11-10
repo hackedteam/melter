@@ -65,7 +65,9 @@ ENDIF(CMAKE_CXX_COMPILER MATCHES "CL|cl")
 
 set(melter_SOURCES main.cc)
 
-include_directories("../libpemelter" "../melter")
+include_directories("../libmelter")
+include_directories("../libpemelter")
+link_directories("../libpemelter")
 
 add_executable(melter ${melter_SOURCES})
-target_link_libraries(melter pemelter crypto boost_system-mt)
+target_link_libraries(melter pemelter crypto boost_system-mt boost_program_options-mt boost_filesystem-mt)
