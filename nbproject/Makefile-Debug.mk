@@ -33,8 +33,7 @@ OBJECTDIR=build/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
-	${OBJECTDIR}/main.o \
-	${OBJECTDIR}/PEParser.o
+	${OBJECTDIR}/main.o
 
 
 # C Compiler Flags
@@ -65,15 +64,10 @@ dist/Debug/GNU-Linux-x86/melter: ${OBJECTFILES}
 	${MKDIR} -p dist/Debug/GNU-Linux-x86
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/melter ${OBJECTFILES} ${LDLIBSOPTIONS} 
 
-${OBJECTDIR}/main.o: main.cpp 
+${OBJECTDIR}/main.o: main.cc 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
-	$(COMPILE.cc) -g -I/usr/include -I/usr/local/include -I../libmelter -MMD -MP -MF $@.d -o ${OBJECTDIR}/main.o main.cpp
-
-${OBJECTDIR}/PEParser.o: PEParser.cpp 
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} $@.d
-	$(COMPILE.cc) -g -I/usr/include -I/usr/local/include -I../libmelter -MMD -MP -MF $@.d -o ${OBJECTDIR}/PEParser.o PEParser.cpp
+	$(COMPILE.cc) -g -I/usr/include -I/usr/local/include -I../libmelter -MMD -MP -MF $@.d -o ${OBJECTDIR}/main.o main.cc
 
 # Subprojects
 .build-subprojects:
